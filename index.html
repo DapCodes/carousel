@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Swipe Scrapbook</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scrapbook Swipe</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="container" id="container">
-  <div class="image-wrapper">
-    <img src="img/main.png" alt="Scrapbook Panjang">
+  <div class="scrapbook-border">
+    <!-- Stiker interaktif -->
+    <img src="img/sticker1.png" class="sticker sticker-top-left" alt="Sticker 1" data-info="Ini adalah stiker pertama yang menarik perhatian!" />
+    <img src="img/sticker2.png" class="sticker sticker-top-right" alt="Sticker 2" data-info="Stiker kedua ini menyimpan kenangan indah." />
+    <img src="img/sticker3.png" class="sticker sticker-bottom-left" alt="Sticker 3" data-info="Stiker ketiga menandakan momen spesial." />
+    <img src="img/sticker4.png" class="sticker sticker-bottom-right" alt="Sticker 4" data-info="Stiker keempat melambangkan harapan baru." />
+
+    <!-- Kontainer scroll gambar -->
+    <div class="scrapbook-container" id="container">
+      <div class="scrapbook-wrapper">
+        <img src="img/main.png" alt="Scrapbook Panjang" />
+      </div>
+    </div>
   </div>
-</div>
 
-<script src="main.js"></script>
+  <!-- Indikator geser -->
+  <div class="swipe-indicator" id="swipe-indicator">
+    <span class="arrow left">⬅</span>
+    <span class="text">Geser ke kiri atau kanan</span>
+    <span class="arrow right">➡</span>
+  </div>
 
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,32 +1,155 @@
-body,
-html {
+body {
     margin: 0;
     padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
     overflow: hidden;
 }
 
-.container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+.scrapbook-border {
     position: relative;
-    cursor: grab;
+    width: 90vw;
+    height: 80vh;
+    background: #fff;
+    border: 6px solid #ccc;
+    border-radius: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.container:active {
+.scrapbook-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    cursor: grab;
+    scroll-behavior: smooth;
+}
+
+.scrapbook-container:active {
     cursor: grabbing;
 }
 
-.image-wrapper {
-    display: flex;
+.scrapbook-wrapper {
+    display: inline-block;
     height: 100%;
-    width: fit-content;
 }
 
-.image-wrapper img {
+.scrapbook-wrapper img {
     height: 100%;
     width: auto;
     user-select: none;
     pointer-events: none;
+}
+
+/* Indikator geser */
+.swipe-indicator {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: #444;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.arrow {
+    animation: bounce 1.2s infinite;
+}
+
+.arrow.left {
+    animation-delay: 0s;
+}
+
+.arrow.right {
+    animation-delay: 0.6s;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+/* Stiker */
+.sticker {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 10;
+
+    /* Tambahkan shadow */
+    filter: drop-shadow(2px 4px 10px rgba(255, 255, 255, 0.4));
+}
+
+
+.sticker.clicked {
+    animation: wiggle 0.4s ease;
+}
+
+@keyframes wiggle {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(10deg);
+    }
+
+    50% {
+        transform: rotate(-10deg);
+    }
+
+    75% {
+        transform: rotate(8deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Posisi stiker */
+.sticker-top-left {
+    top: 10px;
+    left: 10px;
+}
+
+.sticker-top-right {
+    top: 10px;
+    right: 10px;
+}
+
+.sticker-bottom-left {
+    bottom: 10px;
+    left: 10px;
+}
+
+.sticker-bottom-right {
+    bottom: 10px;
+    right: 10px;
 }
